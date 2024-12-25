@@ -1,12 +1,11 @@
 import gymnasium as gym
 
-from utils.base_class import State, Action
+from env.base_class import State, Action
 from utils.case_generator import CaseGenerator, Case
 import torch
-import time
 
 
-class DFJssEnv(gym.Env):
+class MDFJSSPEnv(gym.Env):
     def __init__(self, args, cases: list[Case], device='gpu'):
         self.case_generator = CaseGenerator(args['num_machine'], args['num_job'], args['num_operation_max'],
                                             dynamic_prop=args['dynamic_prop'],

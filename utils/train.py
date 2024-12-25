@@ -3,14 +3,13 @@ import json
 import torch
 from utils.evaluate import valid
 from agent.ppo import PPO
-from env.df_jss import DFJssEnv
-import utils.base_class
-
+from env.mdfjssp import MDFJSSPEnv
+from env.base_class import *
 from tqdm import tqdm
 
 
 def train(args, device):
-    env = DFJssEnv(args, None, device=device)
+    env = MDFJSSPEnv(args, None, device=device)
     agent = PPO(args, device=device)
     # rand_t = valid(args, device, agent)
     best = 10000000
@@ -29,7 +28,7 @@ def train(args, device):
         else:
             state = env.reset(keep_cases=True)
         terminated = False
-        memory = utils.base_class.Memory()
+        memory = Memory()
         # print(f"iteration {iteration + 1}: collecting trajectory ...")
         with torch.no_grad():
             while not terminated:

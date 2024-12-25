@@ -2,10 +2,9 @@ import copy
 import os
 import torch
 import torch.nn as nn
-from tqdm import tqdm
 
-from utils.base_class import State
-from utils.utils import warmup_schedule, WarmupCosineAnnealingLR
+from env.base_class import State
+from utils.utils import WarmupCosineAnnealingLR
 from policy.hgan import HGAN
 
 

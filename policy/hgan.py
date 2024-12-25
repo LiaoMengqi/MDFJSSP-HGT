@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
-from utils.base_class import State, Action
+from env.base_class import State, Action
 import torch
 from torch.distributions import Categorical
 import math

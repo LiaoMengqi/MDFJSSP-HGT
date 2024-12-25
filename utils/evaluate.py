@@ -1,13 +1,13 @@
 import json
 import torch
 
-from env.df_jss import DFJssEnv
+from env.mdfjssp import MDFJSSPEnv
 from utils.case_generator import CaseGenerator
 from agent.ppo import PPO
 
 
 def valid(args, device, agent):
-    valid_env = DFJssEnv(args, None, device=device)
+    valid_env = MDFJSSPEnv(args, None, device=device)
     cases = json.load(open(f"./data/{args['data_name']}.json", "r"))
     cases = CaseGenerator.from_json(cases)
     valid_env.cases = cases
